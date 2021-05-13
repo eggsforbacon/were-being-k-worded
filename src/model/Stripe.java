@@ -11,19 +11,14 @@ public class Stripe {
     }
 
     public void add() {
-        pause();
-        stripe += "\r ";
+        stripe += " ";
     }
 
     public String getStripe() {
         return stripe;
     }
 
-    private void pause() {
-        try {
-            Thread.sleep(rate);
-        } catch (InterruptedException ie) {
-            ie.printStackTrace();
-        }
+    public long getRate() {
+        return rate;
     }
 }

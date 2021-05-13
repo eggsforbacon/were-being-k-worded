@@ -15,7 +15,11 @@ public class StripeThread extends Thread{
 
     @Override
     public void run() {
-        stripe.add();
-        ui.print();
+        System.out.println("\033[0m");
+        for (int i = 0; i < 50; i++) {
+            stripe.add();
+            ui.print();
+            ui.pause(stripe.getRate());
+        }
     }
 }

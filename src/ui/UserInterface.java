@@ -11,6 +11,14 @@ public class UserInterface {
     }
 
     public void print() {
-        System.out.println(stripe.getStripe());
+        System.out.print("\r" + stripe.getStripe());
+    }
+
+    public void pause(long rate) {
+        try {
+            Thread.sleep(rate);
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
     }
 }
