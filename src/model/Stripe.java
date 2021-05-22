@@ -2,23 +2,19 @@ package model;
 
 public class Stripe {
 
-    private String stripe;
-    private long rate;
+    private final String color;
+    private final int width;
 
-    public Stripe(String color, long rateP) {
-        stripe = color + "";
-        rate = rateP;
+    public Stripe(String colorP, int widthP) {
+        color = colorP;
+        width = widthP;
     }
 
-    public void add() {
-        stripe += " ";
+    public String getColor() {
+        return color;
     }
 
-    public String getStripe() {
-        return stripe;
-    }
-
-    public long getRate() {
-        return rate;
+    public int getWidth() {
+        return width;
     }
 }

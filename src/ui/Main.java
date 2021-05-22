@@ -1,27 +1,43 @@
 package ui;
 
+import model.Stripe;
+import threads.StripeThread;
+
 public class Main implements Colors{
 
     public static void main(String[] args) throws InterruptedException {
-        System.out.print(ESC+"0G"+ESC+"0d");
-        System.out.print(ESC+"2J");
-        printYellow();
+        start();
+        System.out.print("----------------------------------------------------------------------------------------------------");
+        System.out.print(ESC+"0G"+ESC+"21d");
+        System.out.print("----------------------------------------------------------------------------------------------------");
+        literallyTheWholeProgram();
         System.out.println(RESET + "\n");
     }
 
-    public static void printYellow() {
-        int x = 0;
-        while (x < 50) {
-            for (int i = 0; i < 4; i++){
-                System.out.print(YELLOW + " ");
-                System.out.print(DOWN);
-                System.out.print(LEFT);
-                UserInterface.pause(200);
-            }
-            x++;
-            System.out.print(RIGHT);
-            for (int i = 0; i < 4; i++) System.out.print(UP);
-        }
-        System.out.println();
+    public static void start() {
+        System.out.print(ESC+"0G"+ESC+"0d");
+        System.out.print(ESC+"2J");
+    }
+
+    public static void literallyTheWholeProgram() throws InterruptedException {
+        Stripe yellow = new Stripe(YELLOW, 6);
+        Stripe blue = new Stripe(BLUE, 4);
+        Stripe red = new Stripe(RED, 4);
+        UserInterface uiY = new UserInterface(yellow);
+        UserInterface uiB = new UserInterface(blue);
+        UserInterface uiR = new UserInterface(red);
+
+        StripeThread tYellow = new StripeThread(uiY, 20, 0);
+        StripeThread tBlue = new StripeThread(uiB, 50, 6);
+        StripeThread tRed = new StripeThread(uiR, 70, 10);
+
+        tYellow.start();
+        tBlue.start();
+        tRed.start();
+
+        tYellow.join();
+        tBlue.join();
+        tRed.join();
+
     }
 }
