@@ -7,9 +7,6 @@ public class Main implements Colors{
 
     public static void main(String[] args) throws InterruptedException {
         start();
-        System.out.print("----------------------------------------------------------------------------------------------------");
-        System.out.print(ESC+"0G"+ESC+"21d");
-        System.out.print("----------------------------------------------------------------------------------------------------");
         literallyTheWholeProgram();
         System.out.println(RESET + "\n");
     }
