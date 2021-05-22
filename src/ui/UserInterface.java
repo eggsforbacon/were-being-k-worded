@@ -15,8 +15,7 @@ public class UserInterface implements Colors{
         while (x < 100) {
             System.out.print(stripe.getColor()+ESC+x+"G"+ESC+startY+"d");
             for (int i = 0; i < stripe.getWidth(); i++){
-                System.out.print(stripe.getColor() + " ");
-                System.out.print(ESC+x+"G"+ESC + (startY + i) + "d");
+                System.out.print(ESC+x+"G"+ESC + (startY + i) + "d" + " ");
                 pause(millis);
             }
             x++;
