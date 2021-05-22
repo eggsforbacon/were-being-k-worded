@@ -1,30 +1,27 @@
 package ui;
 
-import model.Stripe;
-import threads.*;
-
 public class Main implements Colors{
 
     public static void main(String[] args) throws InterruptedException {
-        Stripe yellow = new Stripe(YELLOW, 100);
-        Stripe blue = new Stripe(BLUE, 700);
-        Stripe red = new Stripe(RED, 1200);
-        UserInterface uiYellow = new UserInterface(yellow);
-        UserInterface uiBlue = new UserInterface(blue);
-        UserInterface uiRed = new UserInterface(red);
+        System.out.print(ESC+"0G"+ESC+"0d");
+        System.out.print(ESC+"2J");
+        printYellow();
+        System.out.println(RESET + "\n");
+    }
 
-        StripeThread yThread1 = new StripeThread(yellow, uiYellow);
-        StripeThread bThread1 = new StripeThread(blue, uiBlue);
-        StripeThread rThread1 = new StripeThread(red, uiRed);
-        uiYellow.pause(yellow.getRate());
-        yThread1.start();
-        uiBlue.pause(blue.getRate());
-        bThread1.start();
-        uiRed.pause(red.getRate());
-        rThread1.start();
-
-        yThread1.join();
-        bThread1.join();
-        rThread1.join();
+    public static void printYellow() {
+        int x = 0;
+        while (x < 50) {
+            for (int i = 0; i < 4; i++){
+                System.out.print(YELLOW + " ");
+                System.out.print(DOWN);
+                System.out.print(LEFT);
+                UserInterface.pause(200);
+            }
+            x++;
+            System.out.print(RIGHT);
+            for (int i = 0; i < 4; i++) System.out.print(UP);
+        }
+        System.out.println();
     }
 }
