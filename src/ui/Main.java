@@ -17,16 +17,16 @@ public class Main implements Colors{
     }
 
     public static void literallyTheWholeProgram() throws InterruptedException {
-        Stripe yellow = new Stripe(YELLOW, 6);
+        Stripe yellow = new Stripe(YELLOW, 10);
         Stripe blue = new Stripe(BLUE, 4);
         Stripe red = new Stripe(RED, 4);
         UserInterface uiY = new UserInterface(yellow);
         UserInterface uiB = new UserInterface(blue);
         UserInterface uiR = new UserInterface(red);
 
-        StripeThread tYellow = new StripeThread(uiY, 20, 0);
-        StripeThread tBlue = new StripeThread(uiB, 50, 6);
-        StripeThread tRed = new StripeThread(uiR, 70, 10);
+        StripeThread tYellow = new StripeThread(uiY, 10, 0);
+        StripeThread tBlue = new StripeThread(uiB, 60, 10);
+        StripeThread tRed = new StripeThread(uiR, 100, 14);
 
         tYellow.start();
         tBlue.start();
