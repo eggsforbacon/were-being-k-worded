@@ -1,9 +1,8 @@
 package threads;
 
-import ui.Colors;
 import ui.UserInterface;
 
-public class StripeThread extends Thread implements Colors {
+public class StripeThread extends Thread {
 
     private final UserInterface ui;
     private final int millis;
